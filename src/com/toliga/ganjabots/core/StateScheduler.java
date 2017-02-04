@@ -12,8 +12,8 @@ public class StateScheduler {
         this.context = context;
     }
 
-    public void executeState() {
-        if (nextState.execute(context)) {
+    public void executeState(AntibanManager antibanManager) {
+        if (nextState.execute(context, antibanManager)) {
             nextState = nextState.next();
         }
     }
