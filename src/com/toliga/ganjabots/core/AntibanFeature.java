@@ -36,4 +36,8 @@ public abstract class AntibanFeature {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+    public String getName() {
+        return name;
+    }
 }
