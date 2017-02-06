@@ -49,7 +49,7 @@ public class Utilities {
 
     public static void OpenTab(AbstractScript context, Tab tab) {
         if (!context.getTabs().isOpen(tab)) {
-            context.getTabs().open(tab);
+            context.getTabs().openWithMouse(tab);
             AbstractScript.sleepUntil(() -> context.getTabs().isOpen(tab), 2000);
         }
     }
