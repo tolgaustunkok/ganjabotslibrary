@@ -43,4 +43,16 @@ public abstract class AntibanManager {
 
         return result;
     }
+
+    public void activateAllFeatures() {
+        for (AntibanFeature feature : antibanFeatures) {
+            feature.setEnabled(true);
+        }
+    }
+
+    public void disableAllFeatures() {
+        for (AntibanFeature feature : antibanFeatures) {
+            feature.setEnabled(false);
+        }
+    }
 }
