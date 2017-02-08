@@ -24,7 +24,7 @@ public abstract class AntibanManager {
     public void runFeatures() {
         for (AntibanFeature feature : antibanFeatures) {
             if (feature.isEnabled()) {
-                AbstractScript.log("Probability of " + feature.getName() + " is: " + feature.getProbability());
+                //AbstractScript.log("Probability of " + feature.getName() + " is: " + feature.getProbability());
                 if (Calculations.random(100) < feature.getProbability() * 100) {
                     feature.execute(context);
                 }
