@@ -11,9 +11,11 @@ public class Validator {
         validationRules.add(validationRule);
     }
 
-    public void validate() {
+    public String validate(String validateData) {
+        String result = null;
         for (ValidationRule rule : validationRules) {
-            rule.validate();
+            result = rule.validate(validateData);
         }
+        return result;
     }
 }

@@ -12,6 +12,8 @@ import org.dreambot.api.methods.tabs.Tab;
 import org.dreambot.api.script.AbstractScript;
 
 public class Utilities {
+    private static int standingStill;
+
     public static Image LoadImage(String url, int width, int height) {
         Image infoImg = null;
         try {
@@ -52,5 +54,20 @@ public class Utilities {
             context.getTabs().openWithMouse(tab);
             AbstractScript.sleepUntil(() -> context.getTabs().isOpen(tab), 2000);
         }
+    }
+
+    public static void setStandingStillToZero() {
+        standingStill = 0;
+    }
+
+    public static boolean isStandingStill(AbstractScript context) {
+
+        if (!context.getLocalPlayer().isAnimating()) {
+            standingStill++;
+        } else {
+            standingStill = 0;
+        }
+
+        return standingStill > 35;
     }
 }
