@@ -27,20 +27,20 @@ public class InGameGUIBuilder {
     }
 
     public void draw(Graphics2D graphics) {
+        graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        graphics.drawImage(backgroundImage, 264, 347, null);
+
+        graphics.setFont(new Font("Magneto", Font.BOLD, 15));
+        graphics.setColor(new Color(0x00, 0x66, 0x00));
+        graphics.drawString("Ganja Combat Bot", 284, titleY);
+
+        graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
+        graphics.setColor(Color.BLACK);
+
+        graphics.drawString("v" + version, 440, titleY);
+        graphics.drawImage(ganjaIcon, 490, 312, null);
+
         if (canDraw) {
-            graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            graphics.drawImage(backgroundImage, 264, 347, null);
-
-            graphics.setFont(new Font("Magneto", Font.BOLD, 15));
-            graphics.setColor(new Color(0x00, 0x66, 0x00));
-            graphics.drawString("Ganja Combat Bot", 284, titleY);
-
-            graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
-            graphics.setColor(Color.BLACK);
-
-            graphics.drawString("v" + version, 440, titleY);
-            graphics.drawImage(ganjaIcon, 490, 312, null);
-
             graphics.drawString("        Run Time:", 280, 365); // +17
             graphics.drawString(timer.formatTime(), 420, 365); // Runtime
 
