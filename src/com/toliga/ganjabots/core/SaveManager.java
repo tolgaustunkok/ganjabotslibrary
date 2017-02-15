@@ -3,13 +3,14 @@ package com.toliga.ganjabots.core;
 import org.dreambot.api.script.AbstractScript;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SaveManager {
     private FileManager fileManager;
 
-    public SaveManager() {
-        fileManager = new FileManager("save.dat");
+    public SaveManager(String fileName) {
+        fileManager = new FileManager(fileName);
     }
 
     public void saveOptions(HashMap<String, String> pairs) {
@@ -42,9 +43,9 @@ public class SaveManager {
         }
     }
 
-    public HashMap<String, String> loadAll() {
+    public LinkedHashMap<String, String> loadAll() {
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
-            HashMap<String, String> result = new HashMap<>();
+            LinkedHashMap<String, String> result = new LinkedHashMap<>();
 
             if (fileManager.isFileExists()) {
                 fileManager.openReader();

@@ -8,7 +8,7 @@ public class FileManager {
     private String fileName;
 
     public FileManager(String fileName) {
-        this.fileName = System.getenv().get("HOME") + "DreamBot\\Scripts\\GanjaCombatBot\\" + fileName;
+        this.fileName = fileName;
     }
 
     public void writeLineToFile(String data) {

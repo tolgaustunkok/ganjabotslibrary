@@ -9,11 +9,9 @@ public class PathProfile {
     private String name;
     private List<Element> pathsAndActions = new ArrayList<>();
     private static int index;
-    private SaveManager saveManager;
 
-    public PathProfile(String name, SaveManager saveManager) {
+    public PathProfile(String name) {
         this.name = name;
-        this.saveManager = saveManager;
     }
 
     public Element nextElement() {
@@ -31,11 +29,18 @@ public class PathProfile {
         pathsAndActions.add(element);
     }
 
-    public void saveProfile() {
-        saveManager.saveOption("profile", name);
+    public void saveProfile(String path) {
+        SaveManager saveManager = new SaveManager(path);
+
+        saveManager.saveOption("name", name);
 
         for (int i = 0; i < pathsAndActions.size(); i++) {
-            saveManager.saveOption("-", pathsAndActions.get(i).toString());
+            if (pathsAndActions.get(i) instanceof PathElement) {
+                saveManager.saveOption("tile" + i, pathsAndActions.get(i).toString().replace(" ", "").split("--")[0]);
+            } else {
+                saveManager.saveOption("action" + i, pathsAndActions.get(i).toString().replace(" ", "").split("--")[0]);
+            }
+
         }
     }
 
