@@ -12,14 +12,16 @@ public class InGameGUIBuilder {
     private Image backgroundImage;
     private Image ganjaIcon;
     private String version;
+    private String botName;
     private Timer timer;
     private boolean canDraw = false;
     private Drawable drawable;
 
-    public InGameGUIBuilder(AbstractScript context, String version, Drawable drawable) {
+    public InGameGUIBuilder(AbstractScript context, String botName, String version, Drawable drawable) {
         this.context = context;
         this.version = version;
         this.drawable = drawable;
+        this.botName = botName;
         timer = new Timer();
 
         backgroundImage = Utilities.LoadImage("http://i63.tinypic.com/2j48v94.png", 230, 111);
@@ -31,7 +33,7 @@ public class InGameGUIBuilder {
 
         graphics.setFont(new Font("Magneto", Font.BOLD, 15));
         graphics.setColor(new Color(102, 0, 10));
-        graphics.drawString("Ganja Combat Bot", 284, titleY);
+        graphics.drawString(botName, 284, titleY);
 
         graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
         graphics.setColor(Color.BLACK);
@@ -44,7 +46,9 @@ public class InGameGUIBuilder {
             graphics.drawString("        Run Time:", 280, 365); // +17
             graphics.drawString(timer.formatTime(), 420, 365); // Runtime
 
-            drawable.draw(graphics);
+            if (drawable != null) {
+                drawable.draw(graphics);
+            }
         }
     }
 
