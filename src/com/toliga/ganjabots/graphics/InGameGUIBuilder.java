@@ -33,7 +33,7 @@ public class InGameGUIBuilder {
 
         graphics.setFont(new Font("Magneto", Font.BOLD, 15));
         graphics.setColor(new Color(102, 0, 10));
-        graphics.drawString(botName, 284, titleY);
+        graphics.drawString(botName, 440 - graphics.getFontMetrics().stringWidth(botName) - 10, titleY); // x = 284
 
         graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
         graphics.setColor(Color.BLACK);

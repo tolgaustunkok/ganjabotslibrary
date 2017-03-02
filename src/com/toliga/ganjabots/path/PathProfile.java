@@ -29,19 +29,8 @@ public class PathProfile {
         pathsAndActions.add(element);
     }
 
-    public void saveProfile(String path) {
-        SaveManager saveManager = new SaveManager(path);
-
-        saveManager.saveOption("name", name);
-
-        for (int i = 0; i < pathsAndActions.size(); i++) {
-            if (pathsAndActions.get(i) instanceof PathElement) {
-                saveManager.saveOption("tile" + i, pathsAndActions.get(i).toString().replace(" ", "").split("--")[0]);
-            } else {
-                saveManager.saveOption("action" + i, pathsAndActions.get(i).toString().replace(" ", "").split("--")[0]);
-            }
-
-        }
+    public void saveProfile(SaveManager saveManager) {
+        saveManager.saveProfile(this);
     }
 
     @Override

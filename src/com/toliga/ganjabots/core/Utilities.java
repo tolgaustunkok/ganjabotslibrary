@@ -1,7 +1,10 @@
 package com.toliga.ganjabots.core;
 
 import java.awt.Image;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -22,6 +25,14 @@ public class Utilities {
             AbstractScript.log(e.getMessage());
         }
         return infoImg.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+    }
+
+    private static void write(byte[] input, String outputFileName){
+        try (OutputStream output = new BufferedOutputStream(new FileOutputStream(outputFileName))) {
+            output.write(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void GoToTile(AbstractScript context, Tile tile) {
