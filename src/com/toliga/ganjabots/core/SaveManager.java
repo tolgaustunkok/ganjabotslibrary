@@ -33,7 +33,7 @@ public class SaveManager {
         try {
             file = new File(fileName);
             if (!file.exists()) {
-                if (!new File(file.getParent()).mkdirs()) {
+                if (!new File(file.getParent()).exists() && !new File(file.getParent()).mkdirs()) {
                     AbstractScript.log("Could not create directory to save settings.");
                 } else {
                     String xmlContent = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\r\n" +

@@ -16,12 +16,14 @@ public class InGameGUIBuilder {
     private Timer timer;
     private boolean canDraw = false;
     private Drawable drawable;
+    private Color color;
 
-    public InGameGUIBuilder(AbstractScript context, String botName, String version, Drawable drawable) {
+    public InGameGUIBuilder(AbstractScript context, String botName, String version, Color color, Drawable drawable) {
         this.context = context;
         this.version = version;
         this.drawable = drawable;
         this.botName = botName;
+        this.color = color;
         timer = new Timer();
 
         backgroundImage = Utilities.LoadImage("http://i63.tinypic.com/2j48v94.png", 230, 111);
@@ -32,7 +34,7 @@ public class InGameGUIBuilder {
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         graphics.setFont(new Font("Magneto", Font.BOLD, 15));
-        graphics.setColor(new Color(102, 0, 10));
+        graphics.setColor(color);
         graphics.drawString(botName, 440 - graphics.getFontMetrics().stringWidth(botName) - 10, titleY); // x = 284
 
         graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
