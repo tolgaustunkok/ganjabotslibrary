@@ -73,7 +73,7 @@ public class Utilities {
 
     public static boolean isStandingStill(AbstractScript context) {
 
-        if (!context.getLocalPlayer().isAnimating()) {
+        if (!context.getLocalPlayer().isAnimating() && !context.getLocalPlayer().isMoving()) {
             standingStill++;
         } else {
             standingStill = 0;
