@@ -35,12 +35,12 @@ public class InGameGUIBuilder {
 
         graphics.setFont(new Font("Magneto", Font.BOLD, 15));
         graphics.setColor(color);
-        graphics.drawString(botName, 440 - graphics.getFontMetrics().stringWidth(botName) - 10, titleY); // x = 284
+        graphics.drawString(botName, 490 - graphics.getFontMetrics().stringWidth("v" + version) - 5 - graphics.getFontMetrics().stringWidth(botName) - 5, titleY); // x = 284
 
         graphics.setFont(new Font("Consolas", Font.PLAIN, 15));
         graphics.setColor(Color.BLACK);
 
-        graphics.drawString("v" + version, 440, titleY);
+        graphics.drawString("v" + version, 490 - graphics.getFontMetrics().stringWidth("v" + version) - 5, titleY);
         graphics.drawImage(ganjaIcon, 490, 312, null);
 
         if (canDraw) {
